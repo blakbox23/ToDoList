@@ -1,3 +1,24 @@
-.hello {
-    color: red;
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.todo-body {
+  max-width: 500px;
+  border: 1px solid black;
+  margin: auto;
+  margin-top: 6rem;
+  }
+
+  li {
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    height: 3rem;
+    align-items: center;
+    padding: 5px 8px;
+  }
+
+  span {
+    margin-right: 10px;
   }
