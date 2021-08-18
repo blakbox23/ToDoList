@@ -1,29 +1,26 @@
-import _ from 'lodash';
 import './style.css';
 
-
-let tasks = [
+const tasks = [
   {
-    description: "wash",
+    description: 'wash',
     completed: false,
-    index: 1
+    index: 1,
   },
   {
-    description: "wish wash",
+    description: 'wish wash',
     completed: false,
-    index: 2
+    index: 2,
   },
   {
-    description: "Wach wach",
+    description: 'Wach wach',
     completed: false,
-    index: 3
-  }
-]
+    index: 3,
+  },
+];
 
 const ul = document.querySelector('ul');
-function ui (){
-  for (let i=0; i<tasks.length; i++){
-  
+function ui() {
+  for (let i = 0; i < tasks.length; i++) {
     const li = document.createElement('li');
     const lDiv = document.createElement('div');
     const lDivSpan = document.createElement('span');
@@ -32,13 +29,12 @@ function ui (){
     const checkbox = document.createElement('input');
     const pTask = document.createElement('span');
 
-    checkbox.type = "checkbox";
-    checkbox.name ="task-box";
-    checkbox.value = "val";
-    checkbox.id = "task-box";
+    checkbox.type = 'checkbox';
+    checkbox.name = 'task-box';
+    checkbox.value = 'val';
+    checkbox.id = 'task-box';
     checkbox.classList.add('ldiv-spn');
 
-    
     pTask.innerHTML = `${tasks[i].description}`;
 
     li.appendChild(lDiv);
@@ -50,9 +46,7 @@ function ui (){
     li.appendChild(rDiv);
     rDiv.innerHTML = '<i class="fas fa-bars"></i>';
 
-    
     ul.appendChild(li);
-
   }
 }
 
