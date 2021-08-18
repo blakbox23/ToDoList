@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/6abfc73bc9.js" crossorigin="anonymous"></script>
     <title>ToDo List</title>
 </head>
 <body>
     <div class="todo-body">
         <ul>
-            <li><div>Today's ToDo</div><div>icon</div></li>
-            <li><div>Add to your list</div><div>icon</div></li>
-            <li><div><span>[ ]</span> Add to your list</div><div>icon</div></li>
+            <li><div class="top-text">Today's Todo</div><div class="refresh"><i class="fas fa-sync-alt"></i></div></li>
+            <li class="inpt"><div>Add to your list</div><div></div></li>
+            <li><div class="ldiv"><span class="ldiv-spn"><input type="checkbox" id="task-box" name="task-box" value="val"></span> Task1</div><div class="rdiv"><i class="fas fa-bars"></i></div></li>
         </ul>
+        <div class="clear-all">Clear all completed</div>
     </div>
 </body>
 </html>
