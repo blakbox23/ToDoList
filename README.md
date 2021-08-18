@@ -23,7 +23,8 @@ To install dependancies run:
 `npm install --save-dev webpack webpack-cli webpack-dev-server html-webpack-plugin style-loader css-loader` 
 
 ## Usage
-To use the application run
+To use the application run.
+
 `npm run start`
 
 👤 **Author**
@@ -36,7 +37,7 @@ To use the application run
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/abrormukimov/awesomebooks/issues).
+Feel free to check the [issues page](https://github.com/blakbox23/ToDoList/issues).
 
 ## Show your support
 
