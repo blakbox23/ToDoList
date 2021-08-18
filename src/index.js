@@ -20,7 +20,7 @@ const tasks = [
 
 const ul = document.querySelector('ul');
 function ui() {
-  for (let i = 0; i < tasks.length; i++) {
+  for (let i = 0; i < tasks.length; i += 1) {
     const li = document.createElement('li');
     const lDiv = document.createElement('div');
     const lDivSpan = document.createElement('span');
