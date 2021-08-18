@@ -2,17 +2,17 @@ import './style.css';
 
 const tasks = [
   {
-    description: 'wash',
+    description: 'Complete list structure',
     completed: false,
     index: 1,
   },
   {
-    description: 'wish wash',
+    description: 'Complete interactive list task',
     completed: false,
     index: 2,
   },
   {
-    description: 'Wach wach',
+    description: 'Work on adding and removing tasks',
     completed: false,
     index: 3,
   },
