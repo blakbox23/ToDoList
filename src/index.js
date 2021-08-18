@@ -1,5 +1,5 @@
+import { indexOf } from 'lodash';
 import './style.css';
-
 const tasks = [
   {
     description: 'Complete list structure',
@@ -18,24 +18,28 @@ const tasks = [
   },
 ];
 
+const completedTasks = [];
+
+
 const ul = document.querySelector('ul');
 function ui() {
   for (let i = 0; i < tasks.length; i += 1) {
     const li = document.createElement('li');
     const lDiv = document.createElement('div');
+    lDiv.classList.add('ldiv');
     const lDivSpan = document.createElement('span');
+    lDivSpan.classList.add('ldiv-spn');
     const rDiv = document.createElement('div');
     rDiv.classList.add('rdiv');
-    const checkbox = document.createElement('input');
     const pTask = document.createElement('span');
-
+    const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.name = 'task-box';
-    checkbox.value = 'val';
-    checkbox.id = 'task-box';
-    checkbox.classList.add('ldiv-spn');
+    checkbox.value = `${tasks[i]}`;
+    checkbox.classList.add('chkbx');
 
-    pTask.innerHTML = `${tasks[i].description}`;
+
+    pTask.innerText = `${tasks[i].description}`;
 
     li.appendChild(lDiv);
 
@@ -47,7 +51,40 @@ function ui() {
     rDiv.innerHTML = '<i class="fas fa-bars"></i>';
 
     ul.appendChild(li);
+
+    
+    checkbox.addEventListener('change', (e) => {
+      if (e.target.checked) {
+        taskCompleted(tasks[i]);
+        check();
+
+      } else {
+        taskNotComplete(tasks[i]);
+
+      }
+    });
+
   }
+
+}
+
+function taskCompleted(task){
+  task.completed = true;
+  completedTasks.push(task);
+  // console.log(completedTasks)
+  // console.log(tasks);
+
+}
+
+function taskNotComplete(task){
+  let i = indexOf(task);
+  task.completed = false;
+  completedTasks.splice(i, 1);
+  // console.log(completedTasks)
+  // console.log(tasks);
 }
 
 ui();
+
+
+
