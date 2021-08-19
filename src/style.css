@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+.cancel {
+  text-decoration: line-through;
+}
+
 body {
   background-color: rgb(243, 241, 241);
 }
@@ -51,3 +55,4 @@ li {
   background-color: rgb(243, 241, 241);
   color: rgb(128, 115, 115);
 }
+
