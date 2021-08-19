@@ -20,20 +20,21 @@ const tasks1 = [
   },
 ];
 
-function getFromLocalStorage() {
+const getFromLocalStorage = () => {
   const storage = JSON.parse(localStorage.getItem('lstore'));
   return storage;
 }
 
 const tasks = getFromLocalStorage() || tasks1;
 
-function addToLocalStorage() {
+const addToLocalStorage = () => {
   const storage = JSON.stringify(tasks);
   localStorage.setItem('lstore', storage);
 }
 
 const ul = document.querySelector('ul');
-function ui() {
+
+const ui = () => {
   for (let i = 0; i < tasks.length; i += 1) {
     const li = document.createElement('li');
     const lDiv = document.createElement('div');
