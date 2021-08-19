@@ -26,9 +26,32 @@ body {
   font-size: 1.3rem;
 }
 
+#task-form {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .inpt {
   font-style: italic;
   color: rgb(182, 165, 165);
+}
+
+input {
+  font-size: 1rem;
+}
+
+#txt-input {
+  height: 2rem;
+  width: 50%;
+  outline: none;
+  border: none;
+}
+
+button {
+  background: none;
+  border: none;
+  color:rgb(128, 115, 115);
 }
 
 li {

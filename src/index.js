@@ -1,31 +1,29 @@
 import { taskNotComplete, taskCompleted } from './status.js';
 import './style.css';
 
-// eslint-disable-no-use-before-define import/prefer-default-export
-const tasks1 = [
-  {
-    description: 'Complete list structure',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'Complete interactive list task',
-    completed: false,
-    index: 2,
-  },
-  {
-    description: 'Work on adding and removing tasks',
-    completed: false,
-    index: 3,
-  },
-];
+
+let form = document.querySelector('#task-form');
+let taskDescription = document.querySelector('#txt-input');
+
+const addToTasks = (e) => {
+  e.preventDefault()
+  tasks.push({
+  description: taskDescription.value,
+  completed: false,
+  index: 1
+})
+addToLocalStorage();
+}
+
+form.addEventListener('submit', addToTasks)
+
 
 const getFromLocalStorage = () => {
-  const storage = JSON.parse(localStorage.getItem('lstore'));
+  const storage = JSON.parse(localStorage.getItem('lstore')) || [];
   return storage;
 };
 
-const tasks = getFromLocalStorage() || tasks1;
+const tasks = getFromLocalStorage();
 
 const addToLocalStorage = () => {
   const storage = JSON.stringify(tasks);
@@ -84,3 +82,4 @@ const ui = () => {
 };
 
 ui();
+
