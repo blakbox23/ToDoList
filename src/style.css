@@ -5,6 +5,7 @@
 
 .cancel {
   text-decoration: line-through;
+  color:rgb(182, 165, 165);
 }
 
 body {
@@ -14,7 +15,7 @@ body {
 .todo-body {
   max-width: 450px;
   background-color: #fff;
-  border: 1px solid rgb(128, 115, 115);
+  border: 1.5px solid rgb(206, 206, 206);
   margin: auto;
   margin-top: 6rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
