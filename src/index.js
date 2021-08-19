@@ -23,14 +23,14 @@ const tasks1 = [
 const getFromLocalStorage = () => {
   const storage = JSON.parse(localStorage.getItem('lstore'));
   return storage;
-}
+};
 
 const tasks = getFromLocalStorage() || tasks1;
 
 const addToLocalStorage = () => {
   const storage = JSON.stringify(tasks);
   localStorage.setItem('lstore', storage);
-}
+};
 
 const ul = document.querySelector('ul');
 
@@ -81,6 +81,6 @@ const ui = () => {
       }
     });
   }
-}
+};
 
 ui();
