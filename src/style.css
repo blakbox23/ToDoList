@@ -3,6 +3,11 @@
   padding: 0;
 }
 
+.cancel {
+  text-decoration: line-through;
+  color: rgb(182, 165, 165);
+}
+
 body {
   background-color: rgb(243, 241, 241);
 }
@@ -10,7 +15,7 @@ body {
 .todo-body {
   max-width: 450px;
   background-color: #fff;
-  border: 1px solid rgb(128, 115, 115);
+  border: 1.5px solid rgb(206, 206, 206);
   margin: auto;
   margin-top: 6rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -21,9 +26,32 @@ body {
   font-size: 1.3rem;
 }
 
+#task-form {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .inpt {
   font-style: italic;
   color: rgb(182, 165, 165);
+}
+
+input {
+  font-size: 1rem;
+}
+
+#txt-input {
+  height: 2rem;
+  width: 50%;
+  outline: none;
+  border: none;
+}
+
+button {
+  background: none;
+  border: none;
+  color:rgb(128, 115, 115);
 }
 
 li {
