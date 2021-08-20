@@ -1,40 +1,20 @@
-import { taskNotComplete, taskCompleted } from './status.js';
 import './style.css';
 
+import { taskNotComplete, taskCompleted } from './status.js';
+import {
+  addToLocalStorage, tasks, editTasks, addToTasks, deleteTask,
+} from './crud.js';
 
-let form = document.querySelector('#task-form');
-let taskDescription = document.querySelector('#txt-input');
+const form = document.querySelector('#task-form');
 
-const addToTasks = (e) => {
-  e.preventDefault()
-  tasks.push({
-  description: taskDescription.value,
-  completed: false,
-  index: 1
-})
-addToLocalStorage();
-}
-
-form.addEventListener('submit', addToTasks)
-
-
-const getFromLocalStorage = () => {
-  const storage = JSON.parse(localStorage.getItem('lstore')) || [];
-  return storage;
-};
-
-const tasks = getFromLocalStorage();
-
-const addToLocalStorage = () => {
-  const storage = JSON.stringify(tasks);
-  localStorage.setItem('lstore', storage);
-};
+form.addEventListener('submit', addToTasks);
 
 const ul = document.querySelector('ul');
 
 const ui = () => {
   for (let i = 0; i < tasks.length; i += 1) {
     const li = document.createElement('li');
+    li.setAttribute('id', i);
     const lDiv = document.createElement('div');
     lDiv.classList.add('ldiv');
     const lDivSpan = document.createElement('span');
@@ -55,9 +35,17 @@ const ui = () => {
     lDivSpan.appendChild(checkbox);
 
     li.appendChild(rDiv);
-    rDiv.innerHTML = '<i class="fas fa-bars"></i>';
+    rDiv.innerHTML = '<i class="fas fa-trash-alt"></i>';
 
     ul.appendChild(li);
+
+    pTask.addEventListener('click', () => {
+      editTasks(pTask, tasks[i]);
+    });
+
+    rDiv.addEventListener('click', () => {
+      deleteTask(rDiv.parentElement.id);
+    });
 
     if (tasks[i].completed === true) {
       pTask.innerText = `${tasks[i].description}`;
@@ -82,4 +70,3 @@ const ui = () => {
 };
 
 ui();
-
