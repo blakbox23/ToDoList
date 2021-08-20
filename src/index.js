@@ -1,21 +1,20 @@
 import './style.css';
 
 import { taskNotComplete, taskCompleted } from './status.js';
-import { addToLocalStorage,  tasks, editTasks, addToTasks, deleteTask} from './crud.js';
+import {
+  addToLocalStorage, tasks, editTasks, addToTasks, deleteTask,
+} from './crud.js';
 
+const form = document.querySelector('#task-form');
 
-let form = document.querySelector('#task-form');
-
-
-form.addEventListener('submit', addToTasks)
-
+form.addEventListener('submit', addToTasks);
 
 const ul = document.querySelector('ul');
 
 const ui = () => {
   for (let i = 0; i < tasks.length; i += 1) {
     const li = document.createElement('li');
-    li.setAttribute("id", i);
+    li.setAttribute('id', i);
     const lDiv = document.createElement('div');
     lDiv.classList.add('ldiv');
     const lDivSpan = document.createElement('span');
@@ -40,15 +39,13 @@ const ui = () => {
 
     ul.appendChild(li);
 
-    pTask.addEventListener('click', ()=>{
+    pTask.addEventListener('click', () => {
       editTasks(pTask, tasks[i]);
-    })
+    });
 
-    rDiv.addEventListener('click', ()=> {
-      deleteTask(rDiv.parentElement.id)
-    
-
-    })
+    rDiv.addEventListener('click', () => {
+      deleteTask(rDiv.parentElement.id);
+    });
 
     if (tasks[i].completed === true) {
       pTask.innerText = `${tasks[i].description}`;
@@ -69,12 +66,7 @@ const ui = () => {
         addToLocalStorage();
       }
     });
-
-
-   
-
   }
 };
 
 ui();
-
