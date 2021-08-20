@@ -1,34 +1,14 @@
-import { taskNotComplete, taskCompleted } from './status.js';
 import './style.css';
+
+import { taskNotComplete, taskCompleted } from './status.js';
+import { addToLocalStorage, getFromLocalStorage, tasks, editTasks, addToTasks} from './crud.js';
 
 
 let form = document.querySelector('#task-form');
-let taskDescription = document.querySelector('#txt-input');
 
-const addToTasks = (e) => {
-  e.preventDefault()
-  tasks.push({
-  description: taskDescription.value,
-  completed: false,
-  index: 1
-})
-addToLocalStorage();
-}
 
 form.addEventListener('submit', addToTasks)
 
-
-const getFromLocalStorage = () => {
-  const storage = JSON.parse(localStorage.getItem('lstore')) || [];
-  return storage;
-};
-
-const tasks = getFromLocalStorage();
-
-const addToLocalStorage = () => {
-  const storage = JSON.stringify(tasks);
-  localStorage.setItem('lstore', storage);
-};
 
 const ul = document.querySelector('ul');
 
@@ -59,6 +39,11 @@ const ui = () => {
 
     ul.appendChild(li);
 
+    pTask.addEventListener('click', ()=>{
+      editTasks(pTask, tasks[i]);
+    })
+
+
     if (tasks[i].completed === true) {
       pTask.innerText = `${tasks[i].description}`;
       pTask.classList.add('cancel');
@@ -78,6 +63,10 @@ const ui = () => {
         addToLocalStorage();
       }
     });
+
+
+   
+
   }
 };
 
