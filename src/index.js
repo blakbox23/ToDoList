@@ -1,7 +1,7 @@
 import './style.css';
 
 import { taskNotComplete, taskCompleted } from './status.js';
-import { addToLocalStorage, getFromLocalStorage, tasks, editTasks, addToTasks} from './crud.js';
+import { addToLocalStorage,  tasks, editTasks, addToTasks} from './crud.js';
 
 
 let form = document.querySelector('#task-form');
@@ -15,6 +15,7 @@ const ul = document.querySelector('ul');
 const ui = () => {
   for (let i = 0; i < tasks.length; i += 1) {
     const li = document.createElement('li');
+    li.setAttribute("id", i);
     const lDiv = document.createElement('div');
     lDiv.classList.add('ldiv');
     const lDivSpan = document.createElement('span');
@@ -35,13 +36,25 @@ const ui = () => {
     lDivSpan.appendChild(checkbox);
 
     li.appendChild(rDiv);
-    rDiv.innerHTML = '<i class="fas fa-bars"></i>';
+    rDiv.innerHTML = '<i class="fas fa-trash-alt"></i>';
 
     ul.appendChild(li);
 
     pTask.addEventListener('click', ()=>{
       editTasks(pTask, tasks[i]);
     })
+
+    rDiv.addEventListener('click', ()=> {
+
+      let index = rDiv.parentElement.id;
+      tasks.splice(index, 1);
+      localStorage.setItem("lstore",JSON.stringify(tasks))
+      window.location.reload();
+
+
+    })
+
+
 
 
     if (tasks[i].completed === true) {

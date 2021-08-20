@@ -19,7 +19,7 @@ const addToTasks = (e) => {
     tasks.push({
     description: taskDescription.value,
     completed: false,
-    index: 1
+    index: tasks.length
   })
   addToLocalStorage();
   window.location.reload();
@@ -39,6 +39,10 @@ const editTasks = (editable, task) => {
         }
     })
   }
+}
+
+const deleteTask = () => {
+
 }
 
 export { addToLocalStorage, getFromLocalStorage, addToTasks, editTasks, tasks };
