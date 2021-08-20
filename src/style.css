@@ -78,4 +78,5 @@ li {
   padding-top: 1.5rem;
   background-color: rgb(243, 241, 241);
   color: rgb(128, 115, 115);
+  cursor: pointer;
 }

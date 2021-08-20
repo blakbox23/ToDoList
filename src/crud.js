@@ -1,5 +1,12 @@
 
 let taskDescription = document.querySelector('#txt-input');
+const deleteAllBtn = document.querySelector('.clear-all');
+
+deleteAllBtn.addEventListener('click', ()=>{
+    deleteAllCompleted();
+})
+
+
 
 const addToLocalStorage = () => {
     const storage = JSON.stringify(tasks);
@@ -47,5 +54,20 @@ const deleteTask = (listId) => {
     localStorage.setItem("lstore",JSON.stringify(tasks))
     window.location.reload();
 }
+
+const deleteAllCompleted = () =>{
+  let uncompleted = [];
+  for (let i=0; i<tasks.length; i++){
+      if(tasks[i].completed === false){
+          uncompleted.push(tasks[i])
+      }
+  }
+  console.log(uncompleted)
+  localStorage.setItem("lstore",JSON.stringify(uncompleted))
+  getFromLocalStorage() 
+  window.location.reload();
+}
+
+
 
 export { addToLocalStorage, getFromLocalStorage, addToTasks, editTasks, deleteTask, tasks };
