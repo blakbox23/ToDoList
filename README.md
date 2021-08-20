@@ -1,5 +1,5 @@
 # ToDoList
-This is a Todo list project that allows users to add tasks they'd like to accomplish, and remove them once done. The project is built using webpack, and files are served using the webpack dev server.
+This is a Todo list JavaScript project that allows users to add tasks they'd like to accomplish, and remove them once done. The project is built using webpack, and files are served using the webpack dev server.
 
 ![screenshot](assets/screenshot.png)
 
