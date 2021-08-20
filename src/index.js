@@ -1,7 +1,7 @@
 import './style.css';
 
 import { taskNotComplete, taskCompleted } from './status.js';
-import { addToLocalStorage,  tasks, editTasks, addToTasks} from './crud.js';
+import { addToLocalStorage,  tasks, editTasks, addToTasks, deleteTask} from './crud.js';
 
 
 let form = document.querySelector('#task-form');
@@ -45,17 +45,10 @@ const ui = () => {
     })
 
     rDiv.addEventListener('click', ()=> {
-
-      let index = rDiv.parentElement.id;
-      tasks.splice(index, 1);
-      localStorage.setItem("lstore",JSON.stringify(tasks))
-      window.location.reload();
-
+      deleteTask(rDiv.parentElement.id)
+    
 
     })
-
-
-
 
     if (tasks[i].completed === true) {
       pTask.innerText = `${tasks[i].description}`;

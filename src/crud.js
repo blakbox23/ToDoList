@@ -41,8 +41,11 @@ const editTasks = (editable, task) => {
   }
 }
 
-const deleteTask = () => {
-
+const deleteTask = (listId) => {
+    let index = listId;
+    tasks.splice(index, 1);
+    localStorage.setItem("lstore",JSON.stringify(tasks))
+    window.location.reload();
 }
 
-export { addToLocalStorage, getFromLocalStorage, addToTasks, editTasks, tasks };
+export { addToLocalStorage, getFromLocalStorage, addToTasks, editTasks, deleteTask, tasks };
