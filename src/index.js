@@ -35,9 +35,21 @@ const ui = () => {
     lDivSpan.appendChild(checkbox);
 
     li.appendChild(rDiv);
-    rDiv.innerHTML = '<i class="fas fa-trash-alt"></i>';
+
+    rDiv.innerHTML = '<i class="fas fa-bars"></i>';
 
     ul.appendChild(li);
+
+    li.addEventListener('mouseover', ()=>{
+      rDiv.innerHTML = '<i class="fas fa-trash-alt"></i>';
+
+    })
+
+    li.addEventListener('mouseout', ()=>{
+      rDiv.innerHTML = '<i class="fas fa-bars"></i>';
+    })
+
+    
 
     pTask.addEventListener('click', () => {
       editTasks(pTask, tasks[i]);
