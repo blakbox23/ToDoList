@@ -8,7 +8,10 @@ This is a Todo list JavaScript project that allows users to add tasks they'd lik
 - CSS
 - JavaScript
 
-Prerequisites
+## Live Demo
+[Live Demo Link](https://blakbox23.github.io/ToDoList/)
+
+## Prerequisites
  -  Node.js
  -  NPM
 
